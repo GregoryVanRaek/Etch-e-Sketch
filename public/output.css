@@ -534,12 +534,24 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
+.grid {
+  display: grid;
+  display: flex;
+  gap: 0.125rem;
 }
 
-.text-cyan-400 {
-  --tw-text-opacity: 1;
-  color: rgb(34 211 238 / var(--tw-text-opacity));
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.square {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-width: 2px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+  padding: 0.5rem;
 }
