@@ -23,7 +23,46 @@ function CreateGrid(numRows, numCols, selector)
     return grid
 }
 
+function Draw(grid, row, col)
+{
+    let reset = document.querySelector('#clear');
+    for(let i = 0 ; i < row ; i++)
+        for(let j = 0 ; j < col ; j++)
+        {
+            let target = grid[i][j];
+            target.addEventListener('mouseover', () => { // Color if hover
+                target.classList.add('squarecolor');
+            })
+            reset.addEventListener('click', () => {
+                target.classList.remove('squarecolor');
+            })
+        }
+}
+
+function Remove(grid, row, col, selector)
+{
+    for(let i = 0 ; i < row ; i++)
+        for(let j = 0 ; j < col ; j++)
+        {
+            selector.classList.remove('squarecolor');
+            selector.remove();
+        }
+}
+
+function newGrid()
+{
+    let newGrid = document.querySelector('#new');
+    newGrid.addEventListener('click', () => {
+        newCols = prompt("Number of columns : ");
+        newRows = prompt("=Number of rows : ")
+    })
+}
+
 let squareGrid = document.querySelector('#grid');
-let row = 16;
-let col = 16;
+let row = 15;
+let col = 15;
 const grid = CreateGrid(row, col, squareGrid);
+Draw(grid, row, col);
+
+
+
