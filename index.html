@@ -7,22 +7,28 @@
     <link rel="stylesheet" href="./public/output.css">
     <script src="./js-file.js" defer></script>
 </head>
-<body>
+<body class="bg-orange-100 text-amber-800">
     <header>
 
     </header>
 
-    <main class="flex gap-10">
-        <section id="control" class="flex flex-col pt-8 pl-2 items-center gap-4">
-
-            <div id="size">15 x 15</div>
-            <input id="number" type="range" min="6" max="40" value="15">
-            <button id="new">Apply</button>
-            <button id="clear">Clear</button>
-            
+    <main>
+        <h1 class="text-center my-6 text-6xl">Etch-e-Sketch</h1>
+        <section class="flex gap-10 justify-center">
+            <section id="control" class="flex flex-col pt-8 pl-2 items-center gap-4 text-lg">
+                <p>Display grid</p>
+                <input type="checkbox" name="display" id="display" class="checkbox" checked>
+                <p>Pick your color</p>
+                <input type="color" id="color" value="#92400E" class="color">
+                <div id="size">15 x 15</div>
+                <input id="number" type="range" min="6" max="40" value="15" class="range">
+                <button id="new">Apply</button>
+                <button id="clear">Clear</button>
+            </section>
+            <section id="grid" class="grid">
+            </section>   
         </section>
-        <section id="grid" class="grid">
-        </section>   
+        
 
     </main>
 
