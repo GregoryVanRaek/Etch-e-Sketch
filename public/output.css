@@ -534,12 +534,40 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.flex {
+  display: flex;
+}
+
 .grid {
   display: grid;
 }
 
-.hidden {
-  display: none;
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-10 {
+  gap: 2.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.pl-2 {
+  padding-left: 0.5rem;
+}
+
+.pt-8 {
+  padding-top: 2rem;
 }
 
 #newGridPopUp {
@@ -556,29 +584,28 @@ video {
 
 .grid {
   display: flex;
-  height: auto;
-  width: auto;
+  align-items: center;
   justify-content: center;
-  gap: 0.125rem;
   border-width: 2px;
   padding: 0.5rem;
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  width:750px;
+  height:750px;
 }
 
 .row {
   display: flex;
   flex-direction: column;
-  gap: 0.125rem;
 }
 
 .square {
-  border-width: 2px;
-  border-style: solid;
+  border-collapse: collapse;
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
   padding: 0.5rem;
+  border-width:1px;
 }
 
 .squarecolor {

@@ -1,4 +1,3 @@
-// Creation of the grid
 function CreateGrid(numRows, numCols, selector)
 {
     const grid = [];
@@ -16,6 +15,8 @@ function CreateGrid(numRows, numCols, selector)
             square.dataset.row = i;
             square.dataset.col = j;
             square.classList.add('square');
+            square.style.width = `${(750/numCols)}px`;
+            square.style.height = `${(750/numCols)}px`;
             rowDiv.appendChild(square);
         }
         grid.push(row);
@@ -39,30 +40,41 @@ function Draw(grid, row, col)
         }
 }
 
-function Remove(grid, row, col, selector)
+function Remove(oldGrid, oldRow, oldCol, child)
 {
-    for(let i = 0 ; i < row ; i++)
-        for(let j = 0 ; j < col ; j++)
+    for(let i = 0 ; i < oldRow ; i++)
+        for(let j = 0 ; j < oldCol ; j++)
         {
-            selector.classList.remove('squarecolor');
-            selector.remove();
+            let target = oldGrid[i][j];
+            target.classList.remove('squarecolor');
+            target.remove();
         }
 }
 
-function newGrid()
-{
-    let newGrid = document.querySelector('#new');
-    newGrid.addEventListener('click', () => {
-        newCols = prompt("Number of columns : ");
-        newRows = prompt("=Number of rows : ")
-    })
-}
-
 let squareGrid = document.querySelector('#grid');
-let row = 15;
-let col = 15;
-const grid = CreateGrid(row, col, squareGrid);
+let newButton = document.querySelector('#new');
+let size = document.querySelector('#size')
+let number = document.querySelector('#number');
+
+let row = number.value;
+let col = number.value;
+
+number.addEventListener("input", () => {
+    size.textContent = number.value + " x " + number.value;
+})
+
+let grid = CreateGrid(row, col, squareGrid);
 Draw(grid, row, col);
 
+newButton.addEventListener("click", function() {
+
+    Remove(grid, row, col, squareGrid);
+
+    row = number.value;
+    col = number.value;
+    grid = CreateGrid(row, col, squareGrid);
+
+    Draw(grid, row, col);
+});
 
 
